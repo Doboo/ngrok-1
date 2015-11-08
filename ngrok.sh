@@ -1,4 +1,13 @@
-ELFPATH=$(cd "$(dirname "$0")"; pwd)
+#!/bin/bash
+#############################################
+#作者网名：Sunny								#
+#作者博客：www.sunnyos.com                    #
+#作者QQ：327388905                           #
+#作者QQ群:57914191                           #
+#作者微博：http://weibo.com/2442303192        #
+#############################################
+# 获取当前脚本执行路径
+SELFPATH=$(cd "$(dirname "$0")"; pwd)
 GOOS=`go env | grep GOOS | awk -F\" '{print $2}'`
 GOARCH=`go env | grep GOARCH | awk -F\" '{print $2}'`
 install_yilai(){
@@ -141,6 +150,13 @@ client(){
 
 
 echo "请输入下面数字进行选择"
+echo "#############################################"
+echo "#作者网名：Sunny"
+echo "#作者博客：www.sunnyos.com"
+echo "#作者QQ：327388905"
+echo "#作者QQ群:57914191"
+echo "#作者微博：http://weibo.com/2442303192"
+echo "#############################################"
 echo "------------------------"
 echo "1、全新安装"
 echo "2、安装依赖"
@@ -150,6 +166,7 @@ echo "5、安装ngrok"
 echo "6、生成客户端"
 echo "7、卸载"
 echo "8、启动服务"
+echo "9、查看配置文件"
 echo "------------------------"
 read num
 case "$num" in
@@ -185,6 +202,13 @@ case "$num" in
 		echo "启动端口"
 		read port
 		/usr/local/ngrok/bin/ngrokd -domain=$domain -httpAddr=":$port"
+	;;
+	[9] )
+		echo "输入启动域名"
+		read domain
+		echo server_addr: '"'$domain:4443'"'
+		echo "trust_host_root_certs: false"
+
 	;;
 	*) echo "";;
 esac
