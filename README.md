@@ -13,3 +13,5 @@ ngrok：/usr/local/ngrok
 客户端编译好存放的路径：
 	/usr/local/ngrok/bin/
 需要根据客户端的操作系统环境编译，脚本也已经写好
+
+详细教程看博客
