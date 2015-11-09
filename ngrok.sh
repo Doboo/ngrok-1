@@ -10,6 +10,8 @@
 SELFPATH=$(cd "$(dirname "$0")"; pwd)
 GOOS=`go env | grep GOOS | awk -F\" '{print $2}'`
 GOARCH=`go env | grep GOARCH | awk -F\" '{print $2}'`
+echo '请输入一个域名'
+read DOMAIN
 install_yilai(){
 	yum -y install zlib-devel openssl-devel perl hg cpio expat-devel gettext-devel curl curl-devel perl-ExtUtils-MakeMaker hg wget gcc gcc-c++
 }
@@ -80,8 +82,6 @@ install_ngrok(){
 	cd /usr/local/
 	git clone https://github.com/inconshreveable/ngrok.git
 	export GOPATH=/usr/local/ngrok/
-	echo '请输入一个域名'
-	read DOMAIN
 	export NGROK_DOMAIN=$DOMAIN
 	cd ngrok
 	openssl genrsa -out rootCA.key 2048
