@@ -122,6 +122,7 @@ client(){
 	echo "4、Windows 64位"
 	echo "5、Mac OS 32位"
 	echo "6、Mac OS 64位"
+	echo "7、Linux ARM"
 
 	read num
 	case "$num" in
@@ -142,6 +143,9 @@ client(){
 		;;
 		[6] ) 
 			compile_client darwin amd64
+		;;
+		[7] ) 
+			compile_client linux arm
 		;;
 		*) echo "选择错误，退出";;
 	esac
