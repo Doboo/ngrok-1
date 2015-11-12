@@ -14,4 +14,5 @@ ngrok：/usr/local/ngrok
 	/usr/local/ngrok/bin/  
 需要根据客户端的操作系统环境编译，脚本也已经写好
 
-详细教程看博客
+详细教程看博客：www.sunnyos.com  
+搭建好免费提供的ngrok服务：www.ngrok.cc
