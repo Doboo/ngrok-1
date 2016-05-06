@@ -55,12 +55,12 @@ install_go(){
 	if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ];then
 		# 判断文件是否已经存在
 		if [ ! -f $SELFPATH/go1.4.2.linux-amd64.tar.gz ];then
-			wget http://www.golangtc.com/static/go/go1.4.2/go1.4.2.linux-amd64.tar.gz
+			wget http://www.golangtc.com/static/go/1.4.2/go1.4.2.linux-amd64.tar.gz
 		fi
 	    tar zxvf go1.4.2.linux-amd64.tar.gz
 	else
 		if [ ! -f $SELFPATH/go1.4.2.linux-386.tar.gz ];then
-			wget http://www.golangtc.com/static/go/go1.4.2/go1.4.2.linux-386.tar.gz
+			wget http://www.golangtc.com/static/go/1.4.2/go1.4.2.linux-386.tar.gz
 		fi
 	    tar zxvf go1.4.2.linux-386.tar.gz
 	fi
