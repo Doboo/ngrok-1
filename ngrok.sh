@@ -14,14 +14,14 @@ GOARCH=`go env | grep GOARCH | awk -F\" '{print $2}'`
 echo '请输入一个域名'
 read DOMAIN
 install_yilai(){
-	yum -y install zlib-devel openssl-devel perl hg cpio expat-devel gettext-devel curl curl-devel perl-ExtUtils-MakeMaker hg wget gcc gcc-c++
+	yum -y install zlib-devel openssl-devel perl hg cpio expat-devel gettext-devel curl curl-devel perl-ExtUtils-MakeMaker hg wget gcc gcc-c++ unzip
 }
 
 # 安装git
 install_git(){
 	unstall_git
 	if [ ! -f $SELFPATH/git-2.6.0.tar.gz ];then
-		wget https://www.kernel.org/pub/software/scm/git/git-2.6.0.tar.gz	
+		wget https://www.kernel.org/pub/software/scm/git/git-2.6.0.tar.gz
 	fi
 	tar zxvf git-2.6.0.tar.gz
 	cd git-2.6.0
@@ -80,8 +80,10 @@ uninstall_go(){
 # 安装ngrok
 install_ngrok(){
 	uninstall_ngrok
+	rm -rf /usr/local/ngrok.zip
 	cd /usr/local/
-	git clone https://github.com/inconshreveable/ngrok.git
+	wget http://www.sunnyos.com/ngrok.zip
+	unzip ngrok.zip
 	export GOPATH=/usr/local/ngrok/
 	export NGROK_DOMAIN=$DOMAIN
 	cd ngrok
