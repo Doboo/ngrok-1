@@ -80,9 +80,10 @@ uninstall_go(){
 # 安装ngrok
 install_ngrok(){
 	uninstall_ngrok
-	rm -rf /usr/local/ngrok.zip
-	cd /usr/local/
-	wget http://www.sunnyos.com/ngrok.zip
+	if [ ! -f /usr/local/ngrok.zip ];then
+		cd /usr/local/
+		wget http://www.sunnyos.com/ngrok.zip
+	fi
 	unzip ngrok.zip
 	export GOPATH=/usr/local/ngrok/
 	export NGROK_DOMAIN=$DOMAIN
